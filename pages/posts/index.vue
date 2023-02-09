@@ -30,6 +30,10 @@
         v-model="content"
         autofocus
       />
+      <b-form-textarea
+        v-model="title"
+        autofocus
+      />
       <b-button
         class="mt-3"
         variant="primary"
@@ -46,7 +50,8 @@ export default {
   data: () => {
     return {
       posts: {
-        content: ''
+        content: '',
+        title: ''
       },
     }
   },
@@ -57,7 +62,8 @@ export default {
     params() {
       return {
         post: {
-          content: this.content
+          content: this.content,
+          title: this.title
         }
       }
     }
@@ -78,6 +84,7 @@ export default {
       this.$axios.post(url, this.params)
         .then((res) => {
           this.content = ''
+          this.title = ''
           console.log(res)
           this.fetchContents()
         })

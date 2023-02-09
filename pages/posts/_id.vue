@@ -5,6 +5,7 @@
         class="show-txt"
       >
         {{ post.content }}
+        {{ post.title }}
       </b-card-text>
       <b-button
         size="sm"
